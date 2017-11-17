@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 var Github = require('github');
 var env = require('dotenv').config();

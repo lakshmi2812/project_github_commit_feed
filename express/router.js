@@ -28,7 +28,19 @@ Router.handle = (req, res) => {
 
 	req.on('end', () => {
 		//console.log(body);
-		console.log(JSON.parse(decodeURIComponent(body.substring(8))));
+		let githubObj = JSON.parse(decodeURIComponent(body.substring(8))) || {
+			pusher: { name: '' },
+			repository: { name: '' }
+		};
+		// if (githubObj[pusher][name] === undefined) {
+		// 	console.log('You did not push yet. So, cannot find pusher!!');
+		// } else {
+		// 	console.log('User name: ', githubObj[pusher][name]);
+		// }
+		// // let repo = githubObj[repository][name] || '';
+		// console.log(githubObj);
+		// console.log('User name: ', pusher);
+		// console.log('Repo name: ', repo);
 	});
 	// req.on('end', () => {
 	// 	req.body = body;
